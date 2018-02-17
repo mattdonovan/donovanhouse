@@ -2,7 +2,8 @@
   .row
     .col-sm-12
       h1 All The Articles
-      = link_to 'New Article', new_article_path, class: "btn btn-outline-primary"
+      - unless signed_out?
+        = link_to 'New Article', new_article_path, class: "btn btn-outline-primary"
 
       - @articles.each do |article|
         h3 = article.title
