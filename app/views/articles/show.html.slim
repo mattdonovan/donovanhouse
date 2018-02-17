@@ -1,9 +1,9 @@
 .container 
   .row
     .col-sm-12
-      h3 = @article.title
+      h3 = markdown(@article.title)
 
-      p = @article.text
+      p = markdown(@article.text)
 
       = link_to 'Edit', edit_article_path(@article)
       span &nbsp;|&nbsp;
