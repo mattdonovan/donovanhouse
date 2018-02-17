@@ -1,12 +1,14 @@
 = form_for :session, url: session_path do |form|
-  .text-field
+  p
     = form.label :email
-    = form.text_field :email, type: 'email'
-  .password-field
+  p
+    = form.text_field :email, type: 'email', :class => 'form-text'
+  p
     = form.label :password
-    = form.password_field :password
-  .submit-field
-    = form.submit
+  p
+    = form.password_field :password, :class => 'form-text'
+  p
+    = form.submit :class => 'btn btn-success'
   .other-links
     - if Clearance.configuration.allow_sign_up?
       = link_to t(".sign_up"), sign_up_path

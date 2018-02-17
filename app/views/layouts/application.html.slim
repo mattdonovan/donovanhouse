@@ -7,6 +7,12 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
+    - flash.each do |key, value|
+      .container
+        .row
+          .col-12
+            .alert.alert-warning *{:class => [key]}
+              = value
     = yield
     .footer.text-muted
       .container
@@ -16,13 +22,8 @@ html
               h5
                 | Signed in as:&nbsp;
                 = current_user.email
-              = button_to 'Sign out', sign_out_path, method: :delete
+              = button_to 'Sign out', sign_out_path, method: :delete, :class => 'btn btn-secondary'
             - else
               = link_to 'Sign in', sign_in_path
-
-            #flash
-              - flash.each do |key, value|
-                .flash *{:class => [key]}
-                  = value
 
             = link_to 'Donovanhouse', root_path

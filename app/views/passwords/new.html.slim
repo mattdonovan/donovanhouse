@@ -1,9 +1,16 @@
-#clearance.password-reset
-  h2= t(".title")
-  p= t(".description")
-  = form_for :password, url: passwords_path do |form|
-    .text-field
-      = form.label :email
-      = form.text_field :email, type: 'email'
-    .submit-field
-      = form.submit
+.container 
+  .row
+    .col-sm-12
+      #clearance.password-reset
+        h2= t(".title")
+        p= t(".description")
+        = form_for :password, url: passwords_path do |form|
+          p
+            = form.label :email
+          p
+            = form.text_field :email, type: 'email', :class => 'form-text'
+          p
+            = form.submit :class => 'btn btn-success'
+            
+        .other-links
+          = link_to 'Sign in', sign_in_path

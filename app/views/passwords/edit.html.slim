@@ -1,11 +1,16 @@
-#clearance.password-reset
-  h2= t(".title")
-  p= t(".description")
-  = form_for :password_reset,                                        \
-    url: user_password_path(@user, token: @user.confirmation_token), \
-    html: { method: :put } do |form|                                 \
-    .password-field
-      = form.label :password
-      = form.password_field :password
-    .submit-field
-      = form.submit
+.container 
+  .row
+    .col-sm-12
+      #clearance.password-reset
+        h2= t(".title")
+        p= t(".description")
+        = form_for :password_reset,                                        \
+          url: user_password_path(@user, token: @user.confirmation_token), \
+          html: { method: :put } do |form|                                 \
+          .password-field
+            p
+              = form.label :password
+            p
+              = form.password_field :password, :class => 'form-text'
+          .submit-field
+            = form.submit :class => 'btn btn-success'
