@@ -1,0 +1,10 @@
+.container 
+  .row
+    .col-sm-12
+      h3 = @article.title
+
+      p = @article.text
+
+      = link_to 'Edit', edit_article_path(@article)
+      span &nbsp;|&nbsp;
+      = link_to 'All Articles', articles_path

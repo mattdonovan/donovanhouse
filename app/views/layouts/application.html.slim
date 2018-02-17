@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title Donovanhouse
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    = yield
+    .footer.text-muted
+      .container
+        .row
+          .col-12
+            - if signed_in?
+              h5
+                | Signed in as:&nbsp;
+                = current_user.email
+              = button_to 'Sign out', sign_out_path, method: :delete
+            - else
+              = link_to 'Sign in', sign_in_path
+
+            #flash
+              - flash.each do |key, value|
+                .flash *{:class => [key]}
+                  = value
+
+            = link_to 'Donovanhouse', root_path
