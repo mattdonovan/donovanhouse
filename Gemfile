@@ -19,9 +19,10 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'slim-rails'
-gem 'bootstrap', '~> 4.0.0'
 gem 'clearance'
 gem 'redcarpet'
+gem 'bourbon'
+gem 'neat'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
