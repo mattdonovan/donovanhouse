@@ -1,6 +1,5 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  RAILS_SERVE_STATIC_FILES = true
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -86,6 +85,9 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
+
+  config.serve_static_assets = true
+  config.log_to_stdout = true
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
