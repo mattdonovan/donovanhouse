@@ -1,3 +1,34 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3867246, 2020-12-16T11:57:38-0500
+ *
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are
+ * explicitly restricted from using the Licensed Webfonts(s).
+ *
+ * You may obtain a valid license at the URLs below.
+ *
+ * Webfont: Amsterdam Signature Three by Lettersiro
+ * URL: https://www.myfonts.com/collections/lettersiro-foundry
+ *
+ * © 2026 MyFonts Inc. */
+@font-face {
+  font-family: "AmsterdamSignatureThree";
+  src: url("./assets/fonts/AmsterdamSignatureThree.woff2") format("woff2"),
+       url("./assets/fonts/AmsterdamSignatureThree.woff") format("woff");
+  font-display: swap;
+}
+
+/* PP Object Sans Heavy (Pangram Pangram) — display + heading face. */
+@font-face {
+  font-family: "PP Object Sans";
+  src: url("./assets/fonts/PPObjectSans-Heavy.woff2") format("woff2"),
+       url("./assets/fonts/PPObjectSans-Heavy.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --navy: #1f2b3b;
   --orange: #f2540b;
@@ -7,7 +38,8 @@
   --ink: #222;
   --muted: #5d6470;
   --sans: "Montserrat", system-ui, sans-serif;
-  --script: "Allison", cursive;
+  --display: "PP Object Sans", "Montserrat", system-ui, sans-serif;
+  --script: "AmsterdamSignatureThree", cursive;
   --radius: 2px;
 }
 
@@ -51,7 +83,7 @@ a { color: inherit; }
   letter-spacing: normal;
 }
 .script { font-family: var(--script); color: var(--orange); font-size: clamp(2.6rem, 6vw, 4.2rem); margin: 0; line-height: 1; }
-.display { font-weight: 900; letter-spacing: -0.045em; color: var(--ink); line-height: 0.95; margin: 0; }
+.display { font-family: var(--display); font-weight: 900; letter-spacing: -0.035em; color: var(--ink); line-height: 0.95; margin: 0; }
 .eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0; }
 
 /* Nav */
@@ -80,26 +112,28 @@ a { color: inherit; }
    Montserrat Black with tight tracking + an overlapping orange script line. */
 .wordmark-type {
   position: relative; display: inline-block; margin: 0;
-  font-family: var(--sans); font-weight: 900; color: var(--navy);
-  line-height: 0.8; letter-spacing: -0.062em;
-  padding-bottom: 0.55em; /* room for the script line below the word */
+  /* One size for every hero wordmark ("portfolio", "work"), independent of
+     the height of the section it sits in. */
+  font-size: clamp(4.25rem, 15.5vw, 13rem);
+  font-family: var(--display); font-weight: 900; color: var(--navy);
+  line-height: 0.8; letter-spacing: -0.045em;
+  padding-bottom: 0.8em; /* room for the script line below the word */
 }
 .wm-script {
   position: absolute; white-space: nowrap;
   font-family: var(--script); font-weight: 400; color: var(--orange);
   line-height: 1;
 }
-.wm-portfolio { font-size: clamp(4.25rem, 15.5vw, 13rem); }
-.wm-portfolio .wm-script { font-size: 0.7em; right: 0.02em; top: 0.68em; }
-.wm-work { font-size: clamp(4.5rem, 14vw, 11rem); }
-.wm-work .wm-script { font-size: 0.78em; left: 1.12em; top: 0.62em; }
+/* Offsets are in em of the script itself (half the word size). */
+.wm-portfolio .wm-script { font-size: 0.5em; right: 0.04em; top: 1.58em; }
+.wm-work .wm-script { font-size: 0.5em; left: 2em; top: 1.52em; }
 .landing-actions { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
 
 /* About */
 .about { max-width: 1200px; margin: 0 auto; padding: clamp(2rem, 6vw, 5rem) clamp(1.25rem, 5vw, 3rem); }
 .about-hello { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(2rem, 6vw, 6rem); align-items: center; }
 .about-hello .display { font-size: clamp(3.5rem, 9vw, 7rem); }
-.about-hello .display span { display: block; font-size: 0.48em; letter-spacing: -0.04em; margin-top: 0.35em; }
+.about-hello .display span { display: block; font-size: 0.48em; letter-spacing: -0.03em; margin-top: 0.35em; }
 .lede { font-size: clamp(1rem, 1.4vw, 1.15rem); line-height: 1.75; margin-top: 2rem; }
 .portrait { width: 100%; aspect-ratio: 450 / 668; object-fit: cover; }
 .about-why, .about-quotes { margin-top: clamp(4rem, 9vw, 7rem); text-align: center; }
@@ -138,7 +172,7 @@ blockquote footer { font-weight: 600; font-size: 0.9rem; }
   gap: clamp(1.5rem, 5vw, 4.5rem); column-gap: max(72px, 5vw); align-items: center;
 }
 .mag-title {
-  font-weight: 900; letter-spacing: -0.035em; line-height: 1;
+  font-family: var(--display); font-weight: 900; letter-spacing: -0.025em; line-height: 1;
   font-size: clamp(2rem, 4vw, 3.3rem); color: var(--navy); margin: 0.7rem 0 0.6rem;
   transition: color 0.2s ease;
 }
@@ -172,7 +206,7 @@ blockquote footer { font-weight: 600; font-size: 0.9rem; }
   display: flex; justify-content: space-between; align-items: center; gap: 1rem;
   padding: 1rem clamp(1rem, 3vw, 2rem); border-bottom: 1px solid var(--stone);
 }
-.reader-title { margin: 0.2rem 0 0; font-weight: 900; letter-spacing: -0.03em; font-size: clamp(1.2rem, 2.4vw, 1.7rem); color: var(--navy); }
+.reader-title { margin: 0.2rem 0 0; font-family: var(--display); font-weight: 900; letter-spacing: -0.02em; font-size: clamp(1.2rem, 2.4vw, 1.7rem); color: var(--navy); }
 .icon-btn {
   width: 2.75rem; height: 2.75rem; flex: none;
   border-radius: 50%; border: 0; background: var(--navy); color: #fff;
@@ -192,7 +226,7 @@ blockquote footer { font-weight: 600; font-size: 0.9rem; }
 .reader-notes {
   padding: 2rem 1.75rem; border-left: 1px solid var(--stone); overflow-y: auto; background: var(--paper);
 }
-.reader-notes h3 { font-weight: 900; letter-spacing: -0.02em; font-size: 1.6rem; color: var(--navy); margin: 0.6rem 0 1rem; }
+.reader-notes h3 { font-family: var(--display); font-weight: 900; letter-spacing: -0.015em; font-size: 1.6rem; color: var(--navy); margin: 0.6rem 0 1rem; }
 .reader-notes p { line-height: 1.7; }
 .notes-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
 .notes-actions .btn { min-width: 0; padding: 0.7rem 1rem; font-size: 0.9rem; }

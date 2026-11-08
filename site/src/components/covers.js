@@ -8,13 +8,17 @@ const PAPER = "#f7f4ef";
 const W = 1024;
 const H = Math.round(W / PAGE_ASPECT);
 
+// Amsterdam Signature Three has large swashes; scale its nominal sizes down a touch.
+const SCRIPT_SCALE = 0.85;
+const scriptFont = (px) => `${Math.round(px * SCRIPT_SCALE)}px "AmsterdamSignatureThree"`;
+
 let fontsReady;
 function loadFonts() {
   fontsReady ??= Promise.all([
-    document.fonts.load('900 80px "Montserrat"'),
+    document.fonts.load('900 80px "PP Object Sans"'),
+    document.fonts.load('80px "AmsterdamSignatureThree"'),
     document.fonts.load('600 24px "Montserrat"'),
     document.fonts.load('500 24px "Montserrat"'),
-    document.fonts.load('80px "Allison"'),
   ]).catch(() => {});
   return fontsReady;
 }
@@ -89,7 +93,7 @@ export async function makeCoverTexture(project) {
 
   // Masthead
   ctx.fillStyle = NAVY;
-  ctx.font = '900 34px "Montserrat"';
+  ctx.font = '900 34px "PP Object Sans"';
   ctx.textBaseline = "alphabetic";
   spaced(ctx, "DONOVAN HOUSE", M, 82, 6);
   ctx.font = '600 20px "Montserrat"';
@@ -107,7 +111,7 @@ export async function makeCoverTexture(project) {
     ctx.fillStyle = NAVY;
     ctx.fillRect(M, iy, W - 2 * M, ih);
     ctx.fillStyle = ORANGE;
-    ctx.font = '140px "Allison"';
+    ctx.font = scriptFont(140);
     ctx.textAlign = "center";
     ctx.fillText("Coming soon", W / 2, iy + ih / 2 + 40);
     ctx.textAlign = "left";
@@ -116,11 +120,11 @@ export async function makeCoverTexture(project) {
   // Title block
   ctx.fillStyle = NAVY;
   let size = 76;
-  ctx.font = `900 ${size}px "Montserrat"`;
+  ctx.font = `900 ${size}px "PP Object Sans"`;
   let lines = wrap(ctx, project.shortTitle ?? project.title, W - 2 * M);
   if (lines.length > 2) {
     size = 60;
-    ctx.font = `900 ${size}px "Montserrat"`;
+    ctx.font = `900 ${size}px "PP Object Sans"`;
     lines = wrap(ctx, project.shortTitle ?? project.title, W - 2 * M);
   }
   let ty = iy + ih + 26 + size;
@@ -129,7 +133,7 @@ export async function makeCoverTexture(project) {
     ty += size * 0.98;
   }
   ctx.fillStyle = ORANGE;
-  ctx.font = '84px "Allison"';
+  ctx.font = scriptFont(84);
   ctx.textAlign = "right";
   ctx.fillText("Kristin Donovan", W - M, H - 52);
   ctx.textAlign = "left";
@@ -150,10 +154,10 @@ export async function makeBackCoverTexture() {
   ctx.fillRect(0, 0, W, H);
   ctx.fillStyle = PAPER;
   ctx.textAlign = "center";
-  ctx.font = '900 150px "Montserrat"';
+  ctx.font = '900 150px "PP Object Sans"';
   ctx.fillText("portfolio", W / 2, H / 2 - 20);
   ctx.fillStyle = ORANGE;
-  ctx.font = '120px "Allison"';
+  ctx.font = scriptFont(120);
   ctx.fillText("Kristin Donovan", W / 2 + 120, H / 2 + 90);
   ctx.fillStyle = PAPER;
   ctx.font = '500 26px "Montserrat"';
@@ -178,7 +182,7 @@ export async function makeEndCardTexture(project) {
   ctx.fillStyle = NAVY;
   ctx.font = '600 24px "Montserrat"';
   spaced(ctx, `NO. ${project.number}  ·  ${project.term.toUpperCase()}`, M, 120, 3);
-  ctx.font = '900 76px "Montserrat"';
+  ctx.font = '900 76px "PP Object Sans"';
   let y = 230;
   for (const l of wrap(ctx, project.title, W - 2 * M).slice(0, 3)) {
     ctx.fillText(l, M - 3, y);
@@ -191,18 +195,18 @@ export async function makeEndCardTexture(project) {
   ctx.font = '500 26px "Montserrat"';
   ctx.fillText(n ? `${n} spread${n === 1 ? "" : "s"} inside` : "Pages coming soon", M, y + 70);
   ctx.fillStyle = ORANGE;
-  ctx.font = '96px "Allison"';
+  ctx.font = scriptFont(96);
   ctx.fillText("Kristin Donovan", M, H - 90);
 
   // Right page: navy call to action
   ctx.fillStyle = NAVY;
   ctx.fillRect(W, 0, W, H);
   ctx.fillStyle = PAPER;
-  ctx.font = '900 150px "Montserrat"';
+  ctx.font = '900 150px "PP Object Sans"';
   ctx.fillText("Open", W + M, H / 2 - 40);
   ctx.fillText("project", W + M, H / 2 + 110);
   ctx.fillStyle = ORANGE;
-  ctx.font = '900 150px "Montserrat"';
+  ctx.font = '900 150px "PP Object Sans"';
   ctx.fillText("→", W + M, H / 2 + 280);
   ctx.fillStyle = PAPER;
   ctx.font = '500 24px "Montserrat"';
