@@ -1,3 +1,5 @@
+import { asset } from "../asset.js";
+
 // Every project is a "magazine". Each spread is one 16:9 image that is split
 // across the left and right pages when the magazine is open.
 //
@@ -15,8 +17,8 @@ const spreadUrls = (id, count) =>
   Array.from({ length: count }, (_, i) => {
     const n = String(i + 1).padStart(2, "0");
     return {
-      lg: `/projects/${id}/spread-${n}.jpg`,
-      sm: `/projects/${id}/spread-${n}-sm.jpg`,
+      lg: asset(`projects/${id}/spread-${n}.jpg`),
+      sm: asset(`projects/${id}/spread-${n}-sm.jpg`),
     };
   });
 
@@ -28,9 +30,9 @@ export const projects = [
     course: "ITMD 235 · Kitchen & Bath",
     term: "Spring 2026",
     number: "01",
-    cover: { src: "/projects/lowes-primary-bath/spread-01-sm.jpg", crop: [0.02, 0, 0.47, 0.6] },
+    cover: { src: asset("/projects/lowes-primary-bath/spread-01-sm.jpg"), crop: [0.02, 0, 0.47, 0.6] },
     spreads: spreadUrls("lowes-primary-bath", 12),
-    pdf: "/projects/lowes-primary-bath/lowes-primary-bath.pdf",
+    pdf: asset("/projects/lowes-primary-bath/lowes-primary-bath.pdf"),
     summary:
       "A primary bath remodel designed as a calm, restorative retreat with the feel of an upscale spa — double vanity with a makeup station, a marble-wrapped walk-in shower, and a plan checked against all 27 NKBA bath guidelines.",
     tags: ["Cyncly 2020 Design", "Floor plan + elevation", "Material board", "Renderings"],
@@ -92,8 +94,8 @@ export const projects = [
     course: "History of Interior Design II",
     term: "Fall 2024",
     number: "02",
-    cover: { src: "/projects/coastal-style/full-01.jpg", crop: [0.58, 0.55, 0.42, 0.45] },
-    spreads: [{ lg: "/projects/coastal-style/spread-01.jpg", sm: "/projects/coastal-style/spread-01-sm.jpg" }],
+    cover: { src: asset("/projects/coastal-style/full-01.jpg"), crop: [0.58, 0.55, 0.42, 0.45] },
+    spreads: [{ lg: asset("/projects/coastal-style/spread-01.jpg"), sm: asset("/projects/coastal-style/spread-01-sm.jpg") }],
     summary: "A concept board tracing the materials, palettes and furniture of American coastal style, from Northeast shingle to Southern pastels.",
     tags: ["Concept board", "Design history", "Color palettes"],
     captions: [
@@ -110,10 +112,10 @@ export const projects = [
     course: "DRAF 264 · CAD: Interior Design",
     term: "Spring 2024",
     number: "03",
-    cover: { src: "/projects/cad-kitchen/spread-02-sm.jpg", crop: [0.69, 0.06, 0.26, 0.42] },
+    cover: { src: asset("/projects/cad-kitchen/spread-02-sm.jpg"), crop: [0.69, 0.06, 0.26, 0.42] },
     spreads: [
-      { lg: "/projects/cad-kitchen/spread-01.jpg", sm: "/projects/cad-kitchen/spread-01-sm.jpg" },
-      { lg: "/projects/cad-kitchen/spread-02.jpg", sm: "/projects/cad-kitchen/spread-02-sm.jpg" },
+      { lg: asset("/projects/cad-kitchen/spread-01.jpg"), sm: asset("/projects/cad-kitchen/spread-01-sm.jpg") },
+      { lg: asset("/projects/cad-kitchen/spread-02.jpg"), sm: asset("/projects/cad-kitchen/spread-02-sm.jpg") },
     ],
     summary: "A kitchen drawn in AutoCAD: finish schedule, product selections, floor plan and two elevations on a single 24×36 sheet.",
     tags: ["AutoCAD", "Finish schedule", "Elevations"],

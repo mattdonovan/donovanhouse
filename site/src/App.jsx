@@ -3,6 +3,7 @@ import { projects, contact } from "./data/projects.js";
 import { Shelf } from "./components/Shelf.jsx";
 import { Reader } from "./components/Reader.jsx";
 import { go, useHashRoute } from "./hooks.js";
+import { asset } from "./asset.js";
 
 const mailto = `mailto:${contact.email}?subject=${encodeURIComponent("Hello from your portfolio")}`;
 
@@ -92,7 +93,7 @@ function About() {
             construction teams. Proficient in Buildertrend, Chief Architect, and client-focused design communication.
           </p>
         </div>
-        <img className="portrait" src="/about/kristin.jpg" alt="Portrait of Kristin Donovan" />
+        <img className="portrait" src={asset("/about/kristin.jpg")} alt="Portrait of Kristin Donovan" />
       </section>
 
       <section className="about-why">
@@ -135,8 +136,8 @@ function About() {
           </dl>
         </div>
         <div className="edu-photos">
-          <img src="/about/jccc.jpg" alt="Johnson County Community College campus" />
-          <img src="/about/unt.jpg" alt="University of North Texas campus" />
+          <img src={asset("/about/jccc.jpg")} alt="Johnson County Community College campus" />
+          <img src={asset("/about/unt.jpg")} alt="University of North Texas campus" />
         </div>
       </section>
 
