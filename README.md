@@ -1,24 +1,27 @@
-# README
+# Donovan House — Kristin Donovan Interior Design Portfolio
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Portfolio site for Kristin Donovan. Each project is presented as a 3D magazine you can flip through (React Three Fiber; page-turn approach adapted from Wawa Sensei's 3D Book Slider tutorial).
 
-Things you may want to cover:
+## Run it
 
-* Ruby version
+```bash
+cd site
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # static output in site/dist
+```
 
-* System dependencies
+## Layout
 
-* Configuration
+- `site/` — the Vite + React app
+  - `src/data/projects.js` — project list, captions, tags (add projects here)
+  - `src/components/Book.jsx` — skinned-mesh page turning, curve/flatten, press physics
+  - `src/components/Reader.jsx` — full-screen reader: magnify (M), flatten (F), zoom/pan
+  - `src/components/Shelf.jsx` — project list with hover flip-through
+  - `public/projects/<id>/` — spread images (`spread-NN.jpg` ~2048px, `spread-NN-sm.jpg` ~1024px)
+- `Website wireframe_2026_Donovan Portfolio/` — Kristin's original wireframe and design references
+- `PLAN.md` — site plan, content checklist, next steps
 
-* Database creation
+## Adding a project
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Export the presentation as 16:9 slide images into `site/public/projects/<id>/`, then add an entry to `site/src/data/projects.js`. Each slide becomes one open spread.
