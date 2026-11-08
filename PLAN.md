@@ -1,5 +1,7 @@
 # Kristin Donovan Portfolio — Plan
 
+> Historical plan. `DESIGN.md` is the source of truth for brand and interaction; where they differ, `DESIGN.md` wins.
+
 Prototype: `site/` (Vite + React + React Three Fiber). Run with `cd site && npm run dev`.
 
 ## 1. Site map (from her wireframe)
@@ -12,18 +14,18 @@ Prototype: `site/` (Vite + React + React Three Fiber). Run with `cd site && npm 
 | `#/work/<id>` | Magazine reader (deep-linkable) | Built |
 | Connect | Orange button everywhere → `mailto:donovanhouse@outlook.com`; footer block | Built (mailto only) |
 
-Brand: navy `#1F2B3B`, orange `#F2540B`, Montserrat Black, script accent. Hero wordmarks are her own Canva art cut to transparent PNGs (`site/public/brand/`).
+Brand: navy `#1F2B3B`, orange `#F2540B`. Headings and hero wordmarks in PP Object Sans Heavy; script accent in Amsterdam Signature Three; body in Montserrat. Hero wordmarks are live text matching her Canva art (no image files).
 
 ## 2. Magazine interaction
 
-1. **Shelf** — each project is a 3D magazine with a generated cover (masthead "DONOVAN HOUSE", project no., term, title, cover image). Magazines float and sit tilted like they're on a table.
-2. **Hover / keyboard focus** — magazine straightens, lifts, opens and riffles through the first 3 spreads (mini flip-through). Mouse leave closes it.
+1. **Shelf** — each project is a 3D magazine with a generated cover (masthead "DONOVAN HOUSE", project no., term, title, cover image). Magazines sit flat at rest (no tilt) with a very gentle float; they tilt only on hover.
+2. **Hover / keyboard focus** — magazine tilts slightly, lifts, opens and flips through up to 3 spreads, then stops on an "Open project" spread. Mouse leave closes it.
 3. **Click** — full-screen reader opens; cover opens automatically.
 4. **Reader controls** — click right page = next, left page = back; ← → keys; swipe on touch; arrow buttons; thumbnail strip to jump (pages riffle to the target); Esc closes.
 5. **Design reasoning** — caption panel beside each spread (her wireframe asks for "explanation of what the project was and my reasoning for each design choice").
 6. **Detail** — "View full size" lightbox (fine text and drawings compress in the gutter), plus "Original PDF".
 7. **Reduced motion** — floating and riffling turn off under `prefers-reduced-motion`.
-8. **Reader viewing tools (desktop)** — Magnify lens (M; scroll changes power, shows true magnification), Flatten (F), zoom with ⌘/Ctrl/Alt + scroll, trackpad pinch (Chrome + Safari) or +/−, drag or scroll to pan, 0 resets. Gutter curve is softened to 45% by default and drops further when zoomed. Holding on a page presses it flat around the pointer with a spring (also on the shelf).
+8. **Reader viewing tools (desktop)** — Magnify lens (M; scroll changes power, shows true magnification), Flatten (F), zoom with ⌘/Ctrl + scroll, trackpad pinch (Chrome + Safari) or +/−, drag or scroll to pan, 0 resets. Gutter curve is softened to 45% by default and drops further when zoomed. Holding on a page presses it flat around the pointer with a spring (also on the shelf).
 9. **Shelf** — vertical list: title, course, summary and tags on the left; magazine on the right, flat at rest. Hover tilts it, flips through up to 3 spreads, then stops on an "Open project" spread. The first row peeks above the fold.
 
 Page mapping: each 16:9 slide becomes one open spread (left half on one page, right half on the next). Her presentations are already 16:9, so a PDF converts to a magazine with no re-layout.
